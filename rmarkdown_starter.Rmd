@@ -1,0 +1,58 @@
+---
+title: '6060 Practice: RMarkdown'
+author: "Jordan Ho"
+output:
+  word_document:
+    toc_depth: '3'
+  pdf_document:
+    number_sections: yes
+    toc_depth: 3
+---
+
+```{r,echo=FALSE,message=FALSE, warning=FALSE}
+# Code goes in blocks like this
+
+# load libraries
+library(tidyverse)
+library(apaTables)
+
+#Load data 
+analytic_data <- read_csv("practice_lab_quiz_2_analytic_data_female.csv")
+
+```
+
+# Relations among variables for women
+
+Below are the correlations among the variables for all participants (men and women).
+Note you will need to use just women in your rmarkdown document.
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+psych::pairs.panels(analytic_data)        
+```
+
+\pagebreak
+
+# Distributions
+## Distributions of negative affect scores
+
+Below we can see the distribution of negative affect scores is skewed.
+
+print(my.hist.2)
+
+\pagebreak
+
+## Neuroticism Distribution
+
+Below we can see the distribution of neuroticism scores is relatively normal.
+
+print(my.hist)
+
+\pagebreak
+
+# Relations among variables
+## Scatter plot for Negative Affect and Neuroticism
+
+Below you can see the correlation between negative affect and neuroticism with a regression line.
+
+print(my.plot)
