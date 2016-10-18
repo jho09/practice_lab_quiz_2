@@ -51,11 +51,20 @@ write_sav(analytic_data,path="practice_lab_quiz_2_analytic_data.sav")
 # Creating data sets for males and females
 
 select(analytic_data,sex,pos_affect,neg_affect,Neuroticism,Extraversion)
-analytic_data_male <- filter(analytic_data,sex=="Male")
+analytic_data_male <- analytic_data %>% filter(sex=="Male") %>% select(-sex)
 analytic_data_female <- filter(analytic_data,sex=="Female")
+analytic_data_female <- select(analytic_data_female,-sex)
 
 View(analytic_data_male)
 View(analytic_data_female)
+
+save(analytic_data_female,file = "practice_lab_quiz_2_analytic_data_female.RData")
+write_csv(analytic_data_female,path="practice_lab_quiz_2_analytic_data_female.csv")
+write_sav(analytic_data_female,path="practice_lab_quiz_2_analytic_data_female.sav")
+
+save(analytic_data_male,file = "practice_lab_quiz_2_analytic_data_male.RData")
+write_csv(analytic_data_male,path="practice_lab_quiz_2_analytic_data_male.csv")
+write_sav(analytic_data_male,path="practice_lab_quiz_2_analytic_data_male.sav")
 
 # Creating APA style correlation tables
 
